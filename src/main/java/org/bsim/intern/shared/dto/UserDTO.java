@@ -8,6 +8,10 @@ public class UserDTO implements Serializable {
     private String userId;
     private String userName;
 
+    public UserDTO(){
+
+    }
+
     public long getId() {
         return id;
     }

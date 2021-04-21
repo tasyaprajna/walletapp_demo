@@ -2,11 +2,13 @@ package org.bsim.intern.io.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
-@Table(name = "user_table")
-@SequenceGenerator(name = "seqUser", initialValue = 100, allocationSize = 10)
+@Table(name = "userTBL")
+@SequenceGenerator(name = "seqUSR", initialValue = 100, allocationSize = 10)
 public class UserEntity implements Serializable {
     private static final long serialVersionUID = 4880465015283284470L;
 
@@ -17,8 +19,11 @@ public class UserEntity implements Serializable {
     @Column(nullable = false)
     private String userId;
 
-    @Column(nullable = false, columnDefinition = "VARHCAR(50)", length = 50)
+    @Column(nullable = false, columnDefinition = "VARCHAR(50)", length = 50)
     private String userName;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<WalletEntity> walletEntitiy = new ArrayList<>();
 
     public long getId() {
         return id;
@@ -42,5 +47,13 @@ public class UserEntity implements Serializable {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public List<WalletEntity> getWalletEntitiy() {
+        return walletEntitiy;
+    }
+
+    public void setWalletEntitiy(List<WalletEntity> walletEntitiy) {
+        this.walletEntitiy = walletEntitiy;
     }
 }

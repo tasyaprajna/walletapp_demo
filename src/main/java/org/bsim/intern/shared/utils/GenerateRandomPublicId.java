@@ -1,8 +1,6 @@
 package org.bsim.intern.shared.utils;
 
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
 import java.util.Random;
@@ -13,6 +11,10 @@ public class GenerateRandomPublicId {
     private final String ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     private final int ITERATIONS = 10000;
     private final int KEY_LENGTH = 256;
+
+    public GenerateRandomPublicId(){
+
+    }
 
     public String generateUserId(int length){
         return generateRandomString(length);

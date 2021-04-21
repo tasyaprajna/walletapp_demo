@@ -4,6 +4,10 @@ public class UserResponse {
     private String userId;
     private String userName;
 
+    public UserResponse(){
+
+    }
+
     public String getUserId() {
 
         return userId;
